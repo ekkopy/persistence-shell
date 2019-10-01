@@ -4,9 +4,9 @@ import socket
 
 def open_connect_to_client():
     skc = socket.socket()
-    skc.bind(("192.168.1.4", 8000))
+    skc.bind(("192.168.1.4", 8080))
     skc.listen(1)
-    connection. address = skc.accept()
+    connection, address = skc.accept()
     print(f"[*] new connection from {address}")
 
     while True:
