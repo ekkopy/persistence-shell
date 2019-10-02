@@ -16,6 +16,10 @@ def open_connect_to_client():
             connection.send('terminate'.encode())
             connection.close()
             break
+        elif "" in cmd:
+            print("[*] Empty command!!!")
+            connection.send(cmd.encode())
+            print(connection.recv(1024).decode())
         else:
             connection.send(cmd.encode())
             print(connection.recv(1024).decode())
