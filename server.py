@@ -4,25 +4,25 @@ import socket
 
 def open_connect_to_client():
     skc = socket.socket()
-    skc.bind(("192.168.1.4", 8080))
+    skc.bind(("192.168.1.3", 8080))
     skc.listen(1)
     connection, address = skc.accept()
     print(f"[*] new connection from {address}")
 
     while True:
-        cmd = input("user:~>")
+        cmd = input("user:~> ")
         if "terminate" in cmd:
             print("[*] close conection :(")
             connection.send('terminate'.encode())
             connection.close()
             break
-        elif "" in cmd:
-            print("[*] Empty command!!!")
-            connection.send(cmd.encode())
-            print(connection.recv(1024).decode())
+        elif cmd == "":
+            print("[*] empty string !!!")
+            pass
         else:
             connection.send(cmd.encode())
             print(connection.recv(1024).decode())
+
 
 if __name__ == "__main__":
     open_connect_to_client()
