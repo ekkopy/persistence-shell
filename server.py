@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import socket
+from socket import socket
 
 def open_connect_to_client():
-    skc = socket.socket()
-    skc.bind(("192.168.1.3", 8080))
+    skc = socket()
+    skc.bind(("127.0.0.1", 8000))
     skc.listen(1)
     connection, address = skc.accept()
     print(f"[*] new connection from {address}")
